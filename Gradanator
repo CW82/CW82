@@ -1,0 +1,77 @@
+#Crystal Wolf
+#04/10/2022
+#CS 161, Intro to Computer Science I
+#Lab 2
+#'Gradanator' Use if/else, input and returning values to read a students inputed
+#Grades using HW, and three exams. It'll compute students final grade in class.
+
+#into to program
+def intro():
+    print("This program will use homework and exam grades to calculate your overall grade in your class")
+
+#calculate exam weighted scores
+def exam(exam_name):
+    print(exam_name)
+    weight = int(input("Weight of Exam(0-100)?"))
+    score = int(input("What score did you earn?"))
+    shift = int(input("Were the scores shifted (1= yes, 2= no)?"))
+    if (shift==1):
+        shift_total = int(input("Shift amount?"))
+    else:
+        shift_total = 0
+    total = "come back"
+
+#HW/Sections
+def hw():
+    weight = int(input("Weight of HW(0-100)?"))
+    number_of_HW = int(input("Number of Assignments"))
+    hw_score = 0
+    max = 34
+    for i in range(number_of_HW):
+        hw_score += int(input("Assignment {i+1}score?"))#add to score
+        max += int(input("Assignment {i+1} max?"))
+    section = int(input("How mant sections did you attend?"))*3
+    sections_score= score_limit(sections, 0, 34)
+    total_score = score_limit(hw_score+sections_score, 0, max_score)
+    #Calculate section points here. sections attended * 3/total sections
+    #calculate the total points. 
+    #print out the weighted score, total_score/max_score*weight
+    return total_score/max_score*weight
+
+#set score limit used for calculating attendance points for sections
+def score_limit)score, max, min):
+    score = min(score, max) #max score 100
+    score = max(score, min) #min score
+    return score
+
+
+#overall grade
+def grade(score_1, score_2, score_3, score_4):
+    course_grade = round(score_1 + score_2 + score_3 + score_4,1) #inputs the score for the exmas and HW
+    if (course_grade>=90):
+        letter_grade = "A"
+        msg = "Slayyy"
+    elif (course_grade>=80):
+        letter_grade = "B"
+        msg = "Pop Off"
+    elif (course_grade>=70):
+        letter_grade = "C"
+        msg = "C's get degree BBG"
+    elif (course_grade>=60):
+        letter_grade = "D"
+        msg = "Watch yourself"
+    else:
+        letter_grade = "F"
+        msg = "Oop"
+    print("Your over all percentage = ", {course_grade})
+    print("Your grade will be at least a:", {letter_grade})
+    print(msg)
+grade(78, 88, 90, 89)
+
+def main():
+    score_1 = exam("Midterm_1")
+    score_2 = exam("Midterm_2")
+    score_3 = exam("Final")
+    score_4 = hw()
+    grade(score_1, score_2, score_3, score_4)
+main()
